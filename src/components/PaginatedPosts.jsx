@@ -8,6 +8,7 @@ export default function PaginatedPosts() {
     const { data, isLoading, isError, error, isFetching } = useQuery({
         queryKey: ["paginatedPosts", page],
         queryFn: () => fetchPaginatedPosts(page),
+        staleTime: 1000,
         keepPreviousData: true,
     });
 
@@ -15,35 +16,6 @@ export default function PaginatedPosts() {
     if (isError) return <p className="flex justify-center items-center h-screen max-w-7xl mx-auto text-4xl">Error: {error.message}</p>;
 
     return (
-        // <div>
-        //     <h2>📄 Paginated Posts</h2>
-        //     {data.map((post) => (
-        //         <p key={post.id}>
-        //             <strong>{post.id}.</strong> {post.title}
-        //         </p>
-        //     ))}
-
-        //     <div style={{ marginTop: "10px" }}>
-        //         <button
-        //             onClick={() => setPage((old) => Math.max(old - 1, 1))}
-        //             disabled={page === 1}
-        //         >
-        //             Previous
-        //         </button>
-        //         <span style={{ margin: "0 10px" }}>Page {page}</span>
-        //         <button
-        //             onClick={() => setPage((old) => old + 1)}
-        //             disabled={data.length < 10}
-        //         >
-        //             Next
-        //         </button>
-        //     </div>
-
-        //     {isFetching && <p>Loading new page...</p>}
-        // </div>
-
-
-
         <div className="max-w-7xl mx-auto my-10 px-4">
             <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
                 📄 <span>Paginated Posts</span>

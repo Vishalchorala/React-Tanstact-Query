@@ -10,11 +10,11 @@ export default function InfinitePosts() {
         isFetchingNextPage,
         status,
         error,
-    
+
     } = useInfiniteQuery({
         queryKey: ["infinitePosts"],
         queryFn: fetchInfinitePosts,
-        staleTime:1000,
+        staleTime: 1000,
         getNextPageParam: (lastPage, pages) =>
             lastPage.length === 10 ? pages.length + 1 : undefined,
     });
@@ -62,11 +62,11 @@ export default function InfinitePosts() {
                 📄 <span>Infinite Scroll Posts</span>
             </h2>
 
-            <div className="space-y-4">
+            <div className="space-y-16">
                 {data?.pages?.map((page, i) => (
                     <div key={i}>
                         {page.map((post) => (
-                            <p key={post.id} className="text-gray-800">
+                            <p key={post.id} className="text-gray-800 my-6">
                                 <strong className="text-blue-600">{post.id}.</strong> {post.title}
                             </p>
                         ))}
