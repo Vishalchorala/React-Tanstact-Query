@@ -16,7 +16,11 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Home />} />
+          <Route path='/fetch' element={<FetchPosts />} />
+          <Route path='/pagination' element={<PaginatedPosts />} />
+          <Route path='/infinite' element={<InfinitePosts />} />
         </Routes>
+
       </BrowserRouter>
     </>
   )
