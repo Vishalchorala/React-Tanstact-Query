@@ -74,7 +74,6 @@ export default function InfinitePosts() {
                 ))}
             </div>
 
-            {/* Loader div for auto-fetch trigger */}
             <div ref={loaderRef} className="h-10"></div>
 
             {isFetchingNextPage && (
